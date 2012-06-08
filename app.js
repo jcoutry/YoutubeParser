@@ -14,14 +14,16 @@ var YouTube = function(id, title, url, pub, description){
   this.description = description || "";
 };
 
+app.get("/", function(req, res){
+  return res.end("Example url: http://localhost:3000/user/cocacola");
+});
 
-
-app.get('/:user', function(req, res){
+app.get('/user/:user', function(req, res){
 
   console.log("\n\nData for: " + req.params.user);
 
   if (typeof req.params.user === "undefined") {
-    return res.end("count or user not found");
+    return res.end("filename or user not found");
   };
 
   var videos = [];
